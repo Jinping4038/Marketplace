@@ -22,7 +22,8 @@ struct CartView: View {
                 List(cartViewModel.cartItems, id:\.product.id){item in
                     HStack{
                         Text("""
-                            \(item.product.name)
+                            Id:\(item.product.id)
+                            Name:\(item.product.name)
                             Quantity: \(item.quantity)
                             Price: \(String(format: "%.2f", item.product.price))
                             Total: \(String(format: "%.2f", item.product.price * Double(item.quantity)))
