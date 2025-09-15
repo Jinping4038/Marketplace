@@ -30,7 +30,8 @@ class HomePageViewModel: ObservableObject{
     }
     
     @objc private func handleStorageUpdate() {
-        updateProducts()  // refresh the products list so storage updates
+        updateProducts()
+        // refresh the products list so storage updates
     }
     
     func updateProducts(){
@@ -41,7 +42,7 @@ class HomePageViewModel: ObservableObject{
         do {
             try repository.addItemQuantity(id: id)
             repository.updateStorage(id: id, isAdding: true) 
-            updateProducts()
+//            updateProducts()
         } catch let error as MarketError {
             print("Error: \(error.description)")
         } catch {

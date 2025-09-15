@@ -29,7 +29,8 @@ class CartViewModel: ObservableObject {
         updateCartProducts()
         totalNumber()
         updatePriceSummary()
-        repository.updateStorage(id: id, isAdding: true)
+//        repository.updateStorage(id: id, isAdding: true)
+        repository.updateStorage(id: id, isAdding: false)
 
     }
     

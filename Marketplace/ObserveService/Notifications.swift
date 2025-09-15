@@ -7,6 +7,6 @@
 
 import Foundation
 extension Notification.Name{
-    static let cartUpdate = Notification.Name("cartUpdate")
+//    static let cartUpdate = Notification.Name("cartUpdate")
     static let storageUpdate = Notification.Name("storageUpdate")
 }
