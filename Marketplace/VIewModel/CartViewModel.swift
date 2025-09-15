@@ -29,12 +29,15 @@ class CartViewModel: ObservableObject {
         updateCartProducts()
         totalNumber()
         updatePriceSummary()
+        repository.updateStorage(id: id, isAdding: true)
 
     }
     
     func addToCart(id: Int){
         do {
             try repository.addItemQuantity(id: id)
+            repository.updateStorage(id: id, isAdding: true)
+  
         } catch let error as MarketError {
             print("Error: \(error.description)")
         } catch {

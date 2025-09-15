@@ -10,5 +10,7 @@ import Foundation
 struct CartItem{
     var product: Product
     var quantity: Int
+    var storage: Int
+    
 }
 

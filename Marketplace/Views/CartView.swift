@@ -21,8 +21,14 @@ struct CartView: View {
             VStack{
                 List(cartViewModel.cartItems, id:\.product.id){item in
                     HStack{
-                        Text("\(item.product.name)\nQuantity: \(item.quantity)\n Price\(item.product.price)\n\(item.product.price  * Double(item.quantity))")
-                            .font(.title)
+                        Text("""
+                            \(item.product.name)
+                            Quantity: \(item.quantity)
+                            Price: \(String(format: "%.2f", item.product.price))
+                            Total: \(String(format: "%.2f", item.product.price * Double(item.quantity)))
+                            Storage: \(item.storage)
+                            """)
+                            .font(.title3)
                         
                         Button("Reduce"){
                             cartViewModel.reduceFromCart(id: item.product.id)

@@ -17,9 +17,17 @@ struct ContentView: View {
             VStack {
                 List(homeViewModel.products, id: \.id){ item in
                     HStack{
-                        Text("Id: \(item.id)\nName: \(item.name)\nCategory:\(item.category)\nPrice:\(item.price)")
+                        Text("""
+                            Id: \(item.id)
+                            Name:\(item.name)
+                            Category:\(item.category)
+                            Price:\(item.price)
+                            Storage:\(item.storage)
+                            """)
+                        .font(.title3)
                         Button("Add to Cart"){
                             homeViewModel.addToCart(id: item.id)
+                            
                         }.buttonStyle(.borderedProminent)
                         
                     }

@@ -9,6 +9,7 @@ import Foundation
 
 struct Product: Identifiable, Priceable{
     var id: Int
+    var storage: Int
     var name: String
     var category: ProductCategory
     var price: Double

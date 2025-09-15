@@ -14,5 +14,6 @@ protocol ProductRepository{
     func reduceItemQuantity(id:Int)
     func cartSummary() -> Int
     func priceSummary() -> Double
+    func updateStorage(id: Int, isAdding: Bool)
   
 }

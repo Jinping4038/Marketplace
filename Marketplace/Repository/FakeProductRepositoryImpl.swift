@@ -6,19 +6,8 @@
 //
 
 import Foundation
-//class ProductRepositoryImpl: ProductRepository{
-   
-//    func getProducts() -> [Product] {
-//        return products
-//    }
-    
-    
-//}
-
 
 class FakeProductRepositoryImpl: ProductRepository{
-    
-    
 
     private var fakeDatabase: FakeDatabase
     
@@ -75,6 +64,26 @@ class FakeProductRepositoryImpl: ProductRepository{
         return priceSum
     }
     
-    
-    
+    func updateStorage(id: Int, isAdding: Bool)  {
+        if let productIndex = fakeDatabase.products.firstIndex(where: {$0.id == id}){
+            if isAdding {
+                fakeDatabase.products[productIndex].storage -= 1
+            } else {
+                fakeDatabase.products[productIndex].storage += 1
+        }
+    }
+        if let cartIndex = fakeDatabase.cartItems.firstIndex(where: {$0.product.id == id}){
+            if isAdding {
+                fakeDatabase.cartItems[cartIndex].storage -= 1
+            } else {
+                fakeDatabase.cartItems[cartIndex].storage += 1
+        }
+    }
+        NotificationCenter.default.post(name: .storageUpdate, object: nil)
 }
+    
+    
+    
+       
+}
+

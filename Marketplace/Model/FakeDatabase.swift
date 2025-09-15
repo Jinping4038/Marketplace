@@ -8,10 +8,10 @@
 import Foundation
 
 var productList = [
-    Product(id: 1, name: "Apple", category:  ProductCategory.Grocery, price: 3.9, discount: PriceRule.Percent(3)),
-    Product(id: 2, name: "Sheet", category:  ProductCategory.HomeProducts, price: 3.9, discount: PriceRule.Percent(3)),
-    Product(id: 3, name: "Computer", category:  ProductCategory.Electronics, price: 3.9, discount: PriceRule.Percent(3)),
-    Product(id: 4, name: "Vegetables", category:  ProductCategory.Grocery, price: 3.9, discount: PriceRule.Percent(3))
+    Product(id: 1, storage: 5, name: "Apple", category:  ProductCategory.Grocery, price: 3.9, discount: PriceRule.Percent(3)),
+    Product(id: 2, storage: 5, name: "Sheet", category:  ProductCategory.HomeProducts, price: 3.9, discount: PriceRule.Percent(3)),
+    Product(id: 3, storage: 5, name: "Computer", category:  ProductCategory.Electronics, price: 3.9, discount: PriceRule.Percent(3)),
+    Product(id: 4, storage: 5, name: "Vegetables", category:  ProductCategory.Grocery, price: 3.9, discount: PriceRule.Percent(3))
 ]
 
 class FakeDatabase {
@@ -23,7 +23,7 @@ class FakeDatabase {
     
     var products: [Product] = productList
     var cartItems: [CartItem] = [
-        CartItem(product: productList[0], quantity: 3),
-        CartItem(product: productList[1], quantity: 2)
+        CartItem(product: productList[0], quantity: 3, storage: 5),
+        CartItem(product: productList[1], quantity: 2, storage: 5)
     ]
 }
