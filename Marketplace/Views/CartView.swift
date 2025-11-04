@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CartView: View {
     @StateObject var cartViewModel = CartViewModel(repository: FakeProductRepositoryImpl(fakeDatabase: FakeDatabase.instance))
+    @StateObject var paymentVM = PaymentViewModel()
+
     
 //If you didn’t use the singleton and instead created a new FakeDatabase() each time:
     
@@ -52,6 +54,11 @@ struct CartView: View {
                     Text("\(cartViewModel.totalPrice)")
                 }
                 .font(.title)
+              
+                PaymentButton(action: {
+                    paymentVM.startApplePay(total: cartViewModel.totalPrice)
+                    print("Pay please")
+                })
             }
     }
 }
